@@ -11,8 +11,9 @@ entryother
 initcode
 initcode.out
 kernelmemfs
-mkfs
+mkfs/mkfs
 kernel/kernel
 user/usys.S
 .gdbinit
 TAGS
+.DS_Store
