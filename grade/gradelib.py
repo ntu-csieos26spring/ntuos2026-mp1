@@ -421,7 +421,7 @@ class Runner():
 
         target_base = kw.pop('tg_base', 'qemu')
         make_args = kw.pop('make_args', [])
-        timeout = kw.pop('timeout', 30)
+        timeout = kw.pop('timeout', 240)
 
 
         # Start QEMU
@@ -433,7 +433,7 @@ class Runner():
             # Wait for QEMU to start or make to fail.  This will set
             # self.gdb if QEMU starts.
             self.qemu.on_output = [self.__monitor_start]
-            self.__react([self.qemu], timeout=30)
+            self.__react([self.qemu], timeout=240)
             self.qemu.on_output = []
             if self.gdb is None:
                 print("Failed to connect to QEMU; output:")
