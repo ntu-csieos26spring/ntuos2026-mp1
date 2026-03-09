@@ -154,13 +154,9 @@ UPROGS+=\
     $U/_mp1-part1-0\
     $U/_mp1-part1-1\
     $U/_mp1-part1-2\
-    $U/_mp1-part1-3\
-    $U/_mp1-part1-4\
     $U/_mp1-part2-0\
     $U/_mp1-part2-1\
-    $U/_mp1-part2-2\
-    $U/_mp1-part2-3\
-    $U/_mp1-part2-4
+    $U/_mp1-part2-2
 
 fs.img: mkfs/mkfs README $(UPROGS)
 	mkfs/mkfs fs.img README $(UPROGS)
