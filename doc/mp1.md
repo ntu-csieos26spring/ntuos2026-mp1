@@ -295,9 +295,8 @@ In the `mp1-part2-1` test case:
 9. `thread_join` may be called on any valid target thread pointer (not limited to direct child threads), including when the target has already exited.
 10. `thread_join` will not be called from within a signal handler.
 11. `thread_join` will never be called with `t == current_thread` (no self-join).
-12. `thread_join` target `t` is always a valid thread pointer in this threading system (not NULL, not dangling/freed at the time of join).
-13. `thread_join` may be called on a suspended target thread. In this case, the caller remains blocked until that target thread is resumed and exits. `thread_join` returns only when the target thread exits (not when it is resumed).
-14. Multiple threads may call `thread_join` on the same target thread.
+12. `thread_join` may be called on a suspended target thread. In this case, the caller remains blocked until that target thread is resumed and exits. `thread_join` returns only when the target thread exits (not when it is resumed).
+13. Multiple threads may call `thread_join` on the same target thread.
 ---
 
 
