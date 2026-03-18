@@ -292,11 +292,12 @@ In the `mp1-part2-1` test case:
 6. Only `thread_yield()` and `thread_exit()` will be called in signal handlers. Neither `thread_create()` nor `thread_add_runqueue()` will be called in signal handlers.
 7. `thread_register_handler()` and `thread_kill()` will not be called from the main thread.
 8. `thread_suspend()` / `thread_resume()` are only called with valid, live thread pointers. `thread_resume()` is only called when t is currently suspended.
-9. `thread_join` will only be called on a child thread and only while that child thread has not yet exited.
+9. `thread_join` may be called on any valid target thread pointer (not limited to direct child threads), including when the target has already exited.
 10. `thread_join` will not be called from within a signal handler.
 11. `thread_join` will never be called with `t == current_thread` (no self-join).
-12. `thread_join` target `t` is always a valid child thread pointer (not NULL, not freed).
-13. `thread_join` may be called on a suspended child thread. In this case, the caller remains blocked until that child thread is resumed and exits. `thread_join` returns only when the target thread exits (not when it is resumed).
+12. `thread_join` target `t` is always a valid thread pointer in this threading system (not NULL, not dangling/freed at the time of join).
+13. `thread_join` may be called on a suspended target thread. In this case, the caller remains blocked until that target thread is resumed and exits. `thread_join` returns only when the target thread exits (not when it is resumed).
+14. Multiple threads may call `thread_join` on the same target thread.
 ---
 
 
