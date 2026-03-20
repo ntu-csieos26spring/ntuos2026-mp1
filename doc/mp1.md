@@ -178,7 +178,7 @@ In this part, you need to implement additional functions related to signal gener
    - Suspend the calling thread and call `thread_yield()` to give up the CPU.
 
    In order to complete this part, you also need to modify:
-   - **`void thread_exit(void)`**: Before freeing the exiting thread, check if any thread is waiting on it (i.e., `waiter != NULL`). If so, resume the waiter by clearing its `suspended` flag.
+   - **`void thread_exit(void)`**: Before freeing the exiting thread, check if any thread is waiting on it (i.e., `waiter != NULL`). If so, resume the waiter by clearing its `join_blocked` flag.
 
 ### Sample Output
 
